@@ -18,6 +18,7 @@ function generatePassword() {
     alert(" Error, Please try again.");
     generatePassword()
   }
+  // check the user choices on characters
   if (userCaps){
    holdingArray = holdingArray.concat(caps);
   }
@@ -31,9 +32,29 @@ function generatePassword() {
   } 
 
   if(userSpecial){
-    holdingArray = holdingArray.concat(special);
+    holdingArray = holdingArray.concat(special);     
   }
+
+  if (holdingArray === []){
+    alert("Please select atleast one character type!");
+    generatePassword()
+  }
+
     console.log(holdingArray)
+// randomly generate a new array to match the length the user has picked
+  let randomArray = [];
+  for (let i = 0; i < userLength; i++){
+    var random = holdingArray[Math.floor(Math.random()*holdingArray.length)];
+    randomArray.push(random);
+   }
+// convert the array to string and remove any commas or spaces 
+   let generatedPasswordWithCommas = randomArray.join();
+   let generatedPassword = generatedPasswordWithCommas.replace(/,/g, '');
+
+
+   console.log(randomArray)
+   console.log(generatedPassword)
+   return generatedPassword;
   }
   
     
