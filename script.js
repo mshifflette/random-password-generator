@@ -1,9 +1,53 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+let caps = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+let lowercase = ["a","b","c","d","e","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+let numbers =[0,1,2,3,4,5,6,7,8,9]
+let special = ["!","#","$","%","&","(",")","*","+","-",".","/",":",";","<","=",">","?","@","[","^","_","{","|","}","~"]
+
+
+function generatePassword() {
+  var userCaps = confirm("Would you like your password to include upper case letters?");
+  var userLowerCase = confirm("Would you like your password to include lower case letters?");
+  var userNumbers = confirm("Would you like your password to include numbers?");
+  var userSpecial = confirm("Would you like your password to include special characters?");
+  var userLength = prompt("Please choose a length for your password between 8 and 128 characters")
+  let holdingArray =[];
+  
+  if (userLength > 128 || userLength < 8){
+    alert(" Error, Please try again.");
+    generatePassword()
+  }
+  if (userCaps){
+   holdingArray = holdingArray.concat(caps);
+  }
+
+  if(userLowerCase){
+    holdingArray = holdingArray.concat(lowercase);
+  } 
+
+  if(userNumbers){
+    holdingArray = holdingArray.concat(numbers);
+  } 
+
+  if(userSpecial){
+    holdingArray = holdingArray.concat(special);
+  }
+    console.log(holdingArray)
+  }
+  
+    
+
+
+    
+
+  
+
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var password = generatePassword()
+
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
@@ -15,6 +59,7 @@ generateBtn.addEventListener("click", writePassword);
 
 
 
+generatePassword()
 
 // GIVEN I need a new, secure password
 // WHEN I click the button to generate a password
