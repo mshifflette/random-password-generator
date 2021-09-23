@@ -46,6 +46,18 @@ function generatePassword() {
   for (let i = 0; i < userLength; i++){
     var random = holdingArray[Math.floor(Math.random()*holdingArray.length)];
     randomArray.push(random);
+  //  }
+  //  if(randomArray.includes(caps) === false)
+  //  {  generatePassword();
+  //  }  else if (randomArray.includes(lowercase) === false){
+  //    generatePassword();
+  //  }  else if (randomArray.includes(numbers) === false){
+  //    generatePassword();
+  //  }  else if (randomArray.includes(special) === false){
+  //    generatePassword();
+  //  }
+  //  {  
+     
    }
 // convert the array to string and remove any commas or spaces 
    let generatedPasswordWithCommas = randomArray.join();
